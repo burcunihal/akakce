@@ -36,16 +36,19 @@ export default function Products() {
             <Slider {...settings}>
 
                 {horizontalProducts.map(product => (
-                    <Link to={`/productDetail/?code=${product.code}`}>
+                  
                     <div key={product.code}> 
-                        <img src={product.imageUrl} alt={product.name} />
+                      <Link to={`/productDetail/?code=${product.code}`}>
+                      <img src={product.imageUrl} alt={product.name} />
+                      </Link>
                         <p>{product.name}</p>
                         <p>{product.price}</p>
                     </div>
-                    </Link>
-
+                  
 
                 ))}
+
+
             </Slider>
         );
     };
@@ -57,7 +60,6 @@ export default function Products() {
                     {products.map(product => (
                         <Link to={`/productDetail/?code=${product.code}`}>
                         <div className='card' key={product.code}>
-                            
                             <img src={product.imageUrl} alt={product.name} />
                             <div className='card-body'>
                                 <h5 className='card-title'>{product.name}</h5>
@@ -75,7 +77,7 @@ export default function Products() {
     return (
         <main>
             <div >{renderHorizontalProducts()}</div>
-            <div className="relative min-h-screen  sm:flex sm:items-center sm:justify-center">
+            <div>
                 {renderProducts()}
             </div>
         </main>
